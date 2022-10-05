@@ -5,6 +5,7 @@ import net.ben.testmod.event.MyEvent;
 import net.ben.testmod.item.ModItems;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.player.ArrowNockEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -25,8 +26,6 @@ public class TestMod {
 
         ModItems.register(modEventBus);
 
-        MinecraftForge.EVENT_BUS.register(MyEvent.class);
-
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -35,8 +34,6 @@ public class TestMod {
     private void commonSetup(final FMLCommonSetupEvent event) {
 
     }
-
-
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ClientModEvents {
