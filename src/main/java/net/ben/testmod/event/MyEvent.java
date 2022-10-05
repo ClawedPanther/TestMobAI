@@ -30,9 +30,7 @@ public class MyEvent {
 
     @SubscribeEvent
     public static void onEntitySpawn(EntityJoinLevelEvent event) {
-        System.out.println("Spawn Detected");
         if (event.getEntity() instanceof Animal) {
-            System.out.println("Animal Detected");
             ((Animal) event.getEntity()).goalSelector.removeAllGoals();
             ((Animal) event.getEntity()).goalSelector.addGoal(2, new LookAtPlayerGoal(((Animal) event.getEntity()), Player.class, 6.0F));
         }
